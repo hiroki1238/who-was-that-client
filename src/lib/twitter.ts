@@ -1,5 +1,3 @@
-import { TwitterApi } from "twitter-api-v2";
-
 export interface TwitterUserData {
   id: string;
   username: string;
@@ -23,17 +21,31 @@ export async function getTwitterUserByUsername(
     );
     console.log("Fetching user:", cleanUsername);
 
-    // APIリクエストを直接実行
+    // Bearer Tokenの形式を修正
+    const token = process.env.TWITTER_BEARER_TOKEN?.startsWith("Bearer ")
+      ? process.env.TWITTER_BEARER_TOKEN
+      : `Bearer ${process.env.TWITTER_BEARER_TOKEN}`;
+
+    // APIリクエストを実行
     const response = await fetch(
       `https://api.twitter.com/2/users/by/username/${cleanUsername}?user.fields=profile_image_url,description,name,username`,
       {
+        method: "GET",
         headers: {
-          Authorization: `Bearer ${process.env.TWITTER_BEARER_TOKEN}`,
+          Authorization: token,
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
+        cache: "no-store", // キャッシュを無効化
       }
     );
 
     if (!response.ok) {
+      console.error("Response status:", response.status);
+      console.error("Response status text:", response.statusText);
+      const errorBody = await response.text();
+      console.error("Error body:", errorBody);
+      console.error("Used token prefix:", token.substring(0, 20) + "...");
       throw new Error(`Twitter API error: ${response.statusText}`);
     }
 

@@ -11,11 +11,11 @@ export const mockConnections: Connection[] = [
     firstMetDate: "2024-01-15",
     category: { id: "work", name: "仕事関係" },
     tags: ["エンジニア", "Tech", "React", "Go"],
-    notes: "24卒。猫を飼っている。",
+    notes: "猫を飼っている。",
     lastInteraction: "2024-03-20",
     relationship: "同業者",
     meetingContext: "Go Conference 2024",
-    followUpDate: "2024-04-01",
+    followUpDate: "2025-04-01",
   },
   // 他のモックデータは後で追加
 ];

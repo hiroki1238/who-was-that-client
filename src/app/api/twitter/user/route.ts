@@ -16,7 +16,8 @@ export async function GET(request: Request) {
     console.log("API Route: Fetching user data for", username);
     console.log("Environment check:", {
       hasToken: !!process.env.TWITTER_BEARER_TOKEN,
-      tokenPrefix: process.env.TWITTER_BEARER_TOKEN?.substring(0, 10),
+      tokenLength: process.env.TWITTER_BEARER_TOKEN?.length,
+      tokenStart: process.env.TWITTER_BEARER_TOKEN?.substring(0, 10),
     });
 
     const userData = await getTwitterUserByUsername(username);

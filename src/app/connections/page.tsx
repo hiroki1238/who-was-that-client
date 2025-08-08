@@ -88,7 +88,7 @@ export default function ConnectionsPage() {
                 {/* 関係性情報 */}
                 <div className="mt-8">
                   <h3 className="text-lg font-medium text-gray-900 border-b border-gray-200 pb-2">
-                    関係性
+                    あなたとの関わり
                   </h3>
                   <div className="mt-4 space-y-4">
                     <div className="grid grid-cols-2 gap-4">
@@ -117,14 +117,33 @@ export default function ConnectionsPage() {
                   </h3>
                   <div className="mt-4">
                     <div className="flex flex-wrap gap-2">
-                      {mockConnections[0].tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-extralight text-primary"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                      {mockConnections[0].tags.map((tag) => {
+                        let tagStyle = "";
+                        switch (tag) {
+                          case "エンジニア":
+                            tagStyle = "bg-emerald-100 text-emerald-800";
+                            break;
+                          case "Tech":
+                            tagStyle = "bg-sky-50 text-sky-800";
+                            break;
+                          case "React":
+                            tagStyle = "bg-cyan-100 text-cyan-800";
+                            break;
+                          case "Go":
+                            tagStyle = "bg-sky-200 text-sky-900";
+                            break;
+                          default:
+                            tagStyle = "bg-gray-100 text-gray-800";
+                        }
+                        return (
+                          <span
+                            key={tag}
+                            className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${tagStyle}`}
+                          >
+                            {tag}
+                          </span>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
@@ -142,7 +161,7 @@ export default function ConnectionsPage() {
                 {/* フォローアップ */}
                 <div className="mt-8">
                   <h3 className="text-lg font-medium text-gray-900 border-b border-gray-200 pb-2">
-                    フォローアップ
+                    次回
                   </h3>
                   <div className="mt-4">
                     <div className="text-sm text-gray-500">次回</div>
