@@ -1,6 +1,9 @@
+"use client";
+
 import { RootLayout } from "@/components/layouts/RootLayout";
 import { DEFAULT_CATEGORIES } from "@/types/connection";
 import { mockConnections } from "@/data/mockConnections";
+import { TwitterUserProfile } from "@/components/TwitterUserProfile";
 
 export default function ConnectionsPage() {
   return (
@@ -59,11 +62,7 @@ export default function ConnectionsPage() {
                   key={connection.id}
                   className="flex items-center space-x-3 p-2 hover:bg-gray-50 rounded-md cursor-pointer"
                 >
-                  <img
-                    src={connection.avatarUrl}
-                    alt={connection.displayName}
-                    className="w-10 h-10 rounded-full"
-                  />
+                  <div className="w-10 h-10 rounded-full bg-gray-200" />
                   <div>
                     <div className="font-medium text-gray-900">
                       {connection.displayName}
@@ -83,44 +82,8 @@ export default function ConnectionsPage() {
           <div className="max-w-3xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <div className="bg-white rounded-lg shadow">
               <div className="p-6">
-                <div className="flex items-start space-x-6">
-                  <div className="flex-shrink-0">
-                    <img
-                      src={mockConnections[0].avatarUrl}
-                      alt={mockConnections[0].displayName}
-                      className="w-32 h-32 rounded-lg"
-                    />
-                  </div>
-                  <div className="flex-1">
-                    <div className="space-y-1">
-                      <div className="text-sm text-gray-500">
-                        {mockConnections[0].username}
-                      </div>
-                      <h2 className="text-2xl font-bold text-gray-900">
-                        {mockConnections[0].displayName}
-                      </h2>
-                      <div className="text-lg text-gray-600">
-                        {mockConnections[0].bio}
-                      </div>
-                    </div>
-                    <div className="mt-4 grid grid-cols-2 gap-4">
-                      <div>
-                        <div className="text-sm text-gray-500">カテゴリー</div>
-                        <div className="text-gray-900">
-                          {mockConnections[0].category.name}
-                        </div>
-                      </div>
-                      <div>
-                        <div className="text-sm text-gray-500">
-                          初めて会った日
-                        </div>
-                        <div className="text-gray-900">
-                          {mockConnections[0].firstMetDate}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                {/* Twitterプロフィール */}
+                <TwitterUserProfile username="tabamarine220" />
 
                 {/* 関係性情報 */}
                 <div className="mt-8">
@@ -182,9 +145,7 @@ export default function ConnectionsPage() {
                     フォローアップ
                   </h3>
                   <div className="mt-4">
-                    <div className="text-sm text-gray-500">
-                      次回アクション予定日
-                    </div>
+                    <div className="text-sm text-gray-500">次回</div>
                     <div className="text-gray-900">
                       {mockConnections[0].followUpDate}
                     </div>

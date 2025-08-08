@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const config: NextConfig = {
+  images: {
+    domains: ["pbs.twimg.com"], // Twitter画像ドメインを許可
+  },
 };
 
-export default nextConfig;
+export default config;
