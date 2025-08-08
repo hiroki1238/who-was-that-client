@@ -13,12 +13,12 @@ export default function Home() {
             大切な関係を見失わないようにするためのツールです。
           </p>
           <div className="mt-8">
-            <button
-              type="button"
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-[#13bfd6] hover:bg-[#56deea] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            <a
+              href="/connections"
+              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-[#13bfd6] hover:bg-[#56deea] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#13bfd6]"
             >
               はじめる
-            </button>
+            </a>
           </div>
         </div>
 
@@ -53,31 +53,33 @@ export default function Home() {
             </div>
 
             <div className="pt-6">
-              <div className="flow-root bg-gray-50 rounded-lg px-6 pb-8">
-                <div className="-mt-6">
-                  <div className="inline-flex items-center justify-center p-3 bg-[#36afc4] rounded-md shadow-lg">
-                    <svg
-                      className="h-6 w-6 text-white"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M4 6h16M4 10h16M4 14h16M4 18h16"
-                      />
-                    </svg>
+              <a href="/connections" className="block">
+                <div className="flow-root bg-gray-50 rounded-lg px-6 pb-8 transition-colors hover:bg-gray-100">
+                  <div className="-mt-6">
+                    <div className="inline-flex items-center justify-center p-3 bg-[#36afc4] rounded-md shadow-lg">
+                      <svg
+                        className="h-6 w-6 text-white"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M4 6h16M4 10h16M4 14h16M4 18h16"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="mt-8 text-lg font-medium text-gray-900 tracking-tight">
+                      繋がり一覧
+                    </h3>
+                    <p className="mt-5 text-base text-gray-500">
+                      タグ付けや検索機能で、記録した情報を簡単に見つけ出すことができます。
+                    </p>
                   </div>
-                  <h3 className="mt-8 text-lg font-medium text-gray-900 tracking-tight">
-                    繋がり一覧
-                  </h3>
-                  <p className="mt-5 text-base text-gray-500">
-                    タグ付けや検索機能で、記録した情報を簡単に見つけ出すことができます。
-                  </p>
                 </div>
-              </div>
+              </a>
             </div>
 
             <div className="pt-6">
