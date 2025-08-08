@@ -1,12 +1,16 @@
 "use client";
 
+import { useState } from "react";
 import { RootLayout } from "@/components/layouts/RootLayout";
-import { DEFAULT_CATEGORIES } from "@/types/connection";
+import { DEFAULT_CATEGORIES, Connection } from "@/types/connection";
 import { mockConnections } from "@/data/mockConnections";
 import { TwitterUserProfile } from "@/components/TwitterUserProfile";
 import { TwitterProfileImage } from "@/components/TwitterProfileImage";
 
 export default function ConnectionsPage() {
+  const [selectedConnection, setSelectedConnection] = useState<Connection>(
+    mockConnections[0]
+  );
   return (
     <RootLayout>
       <div className="flex h-[calc(100vh-4rem)]">
@@ -61,7 +65,12 @@ export default function ConnectionsPage() {
               {mockConnections.map((connection) => (
                 <div
                   key={connection.id}
-                  className="flex items-center space-x-3 p-2 hover:bg-gray-50 rounded-md cursor-pointer"
+                  className={`flex items-center space-x-3 p-2 hover:bg-gray-200 rounded-md cursor-pointer ${
+                    selectedConnection.id === connection.id
+                      ? "bg-gray-50 ring-2 ring-gray-300 ring-opacity-50"
+                      : ""
+                  }`}
+                  onClick={() => setSelectedConnection(connection)}
                 >
                   <TwitterProfileImage twitterId={connection.twitterId} />
                   <div>
@@ -84,7 +93,7 @@ export default function ConnectionsPage() {
             <div className="bg-white rounded-lg shadow">
               <div className="p-6">
                 {/* Twitterプロフィール */}
-                <TwitterUserProfile username="tabamarine220" />
+                <TwitterUserProfile username={selectedConnection.twitterId} />
 
                 {/* 関係性情報 */}
                 <div className="mt-8">
@@ -96,7 +105,7 @@ export default function ConnectionsPage() {
                       <div>
                         <div className="text-sm text-gray-500">関係</div>
                         <div className="text-gray-900">
-                          {mockConnections[0].relationship}
+                          {selectedConnection.relationship}
                         </div>
                       </div>
                       <div>
@@ -104,7 +113,7 @@ export default function ConnectionsPage() {
                           出会った場所
                         </div>
                         <div className="text-gray-900">
-                          {mockConnections[0].meetingContext}
+                          {selectedConnection.meetingContext}
                         </div>
                       </div>
                     </div>
@@ -118,7 +127,7 @@ export default function ConnectionsPage() {
                   </h3>
                   <div className="mt-4">
                     <div className="flex flex-wrap gap-2">
-                      {mockConnections[0].tags.map((tag) => {
+                      {selectedConnection.tags.map((tag) => {
                         let tagStyle = "";
                         switch (tag) {
                           case "エンジニア":
@@ -155,7 +164,7 @@ export default function ConnectionsPage() {
                     メモ
                   </h3>
                   <div className="mt-4">
-                    <p className="text-gray-600">{mockConnections[0].notes}</p>
+                    <p className="text-gray-600">{selectedConnection.notes}</p>
                   </div>
                 </div>
 
@@ -167,7 +176,7 @@ export default function ConnectionsPage() {
                   <div className="mt-4">
                     <div className="text-sm text-gray-500">次回</div>
                     <div className="text-gray-900">
-                      {mockConnections[0].followUpDate}
+                      {selectedConnection.followUpDate}
                     </div>
                   </div>
                 </div>

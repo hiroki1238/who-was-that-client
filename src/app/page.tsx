@@ -6,11 +6,11 @@ export default function Home() {
       <div className="bg-white rounded-lg shadow px-5 py-6 sm:px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-            あなたの記憶を整理する新しい方法
+            記憶を整理する新しい方法
           </h2>
           <p className="mt-4 text-xl text-gray-500">
-            Who Was That? は、出会った人々との思い出を記録し、
-            大切な関係を見失わないようにするためのツールです。
+            Who Was That? は、Xでフォローしている人の情報を整理し、
+            いつどこで出会った人か記録しておくためのツールです。
           </p>
           <div className="mt-8">
             <a
@@ -104,7 +104,7 @@ export default function Home() {
                     リマインダー
                   </h3>
                   <p className="mt-5 text-base text-gray-500">
-                    大切な人との約束や、フォローアップが必要な事項を忘れないようにリマインドします。
+                    次回の約束や、フォローアップが必要な事項を忘れないようにリマインドします。
                   </p>
                 </div>
               </div>

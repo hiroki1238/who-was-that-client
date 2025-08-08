@@ -17,5 +17,21 @@ export const mockConnections: Connection[] = [
     meetingContext: "Go Conference 2024",
     followUpDate: "2025-04-01",
   },
+  {
+    id: "1",
+    twitterId: "ishi2ki",
+    displayName: "いしかわ",
+    username: "@ishi2ki",
+    avatarUrl: "https://pbs.twimg.com/profile_images/1234567890/avatar.jpg", // この URL は実際のものに置き換える必要があります
+    bio: "エンジニア / データサイエンティスト",
+    firstMetDate: "2024-01-15",
+    category: { id: "work", name: "仕事関係" },
+    tags: ["エンジニア", "Tech", "GCP"],
+    notes: "名古屋にいる。",
+    lastInteraction: "2024-03-20",
+    relationship: "同業者",
+    meetingContext: "WED inc.",
+    followUpDate: "2025-04-01",
+  },
   // 他のモックデータは後で追加
 ];

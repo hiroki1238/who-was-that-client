@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import Link from "next/link";
 
 interface RootLayoutProps {
   children: ReactNode;
@@ -12,9 +13,11 @@ export const RootLayout = ({ children }: RootLayoutProps) => {
           <div className="flex justify-between h-16">
             <div className="flex">
               <div className="flex-shrink-0 flex items-center">
-                <h1 className="text-2xl font-bold text-gray-900">
-                  Who Was That?
-                </h1>
+                <Link href="/">
+                  <h1 className="text-2xl font-bold text-gray-900 hover:text-gray-700 transition-colors">
+                    Who Was That?
+                  </h1>
+                </Link>
               </div>
             </div>
           </div>
