@@ -36,7 +36,8 @@ export async function getTwitterUserByUsername(
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        cache: "no-store", // キャッシュを無効化
+        cache: "force-cache", // キャッシュを有効化
+        next: { revalidate: 3600 }, // 1時間ごとに再検証
       }
     );
 

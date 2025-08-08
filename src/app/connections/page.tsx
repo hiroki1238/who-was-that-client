@@ -4,6 +4,7 @@ import { RootLayout } from "@/components/layouts/RootLayout";
 import { DEFAULT_CATEGORIES } from "@/types/connection";
 import { mockConnections } from "@/data/mockConnections";
 import { TwitterUserProfile } from "@/components/TwitterUserProfile";
+import { TwitterProfileImage } from "@/components/TwitterProfileImage";
 
 export default function ConnectionsPage() {
   return (
@@ -62,7 +63,7 @@ export default function ConnectionsPage() {
                   key={connection.id}
                   className="flex items-center space-x-3 p-2 hover:bg-gray-50 rounded-md cursor-pointer"
                 >
-                  <div className="w-10 h-10 rounded-full bg-gray-200" />
+                  <TwitterProfileImage twitterId={connection.twitterId} />
                   <div>
                     <div className="font-medium text-gray-900">
                       {connection.displayName}

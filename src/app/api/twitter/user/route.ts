@@ -2,6 +2,12 @@ import { NextResponse } from "next/server";
 import { getTwitterUserByUsername } from "@/lib/twitter";
 
 export async function GET(request: Request) {
+  // レスポンスをキャッシュするための設定
+  const cacheOptions = {
+    headers: {
+      "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=1800",
+    },
+  };
   const { searchParams } = new URL(request.url);
   const username = searchParams.get("username");
 
@@ -28,7 +34,7 @@ export async function GET(request: Request) {
     }
 
     console.log("API Route: User data fetched successfully");
-    return NextResponse.json(userData);
+    return NextResponse.json(userData, cacheOptions);
   } catch (error) {
     console.error("Error in Twitter API route:", error);
     return NextResponse.json(
